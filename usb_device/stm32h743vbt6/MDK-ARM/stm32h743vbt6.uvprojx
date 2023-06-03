@@ -338,9 +338,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>USE_HAL_DRIVER,STM32H750xx,STM32H7,CONFIG_USB_DWC2_PORT=FS_PORT</Define>
+              <Define>USE_HAL_DRIVER,STM32H750xx,STM32H7</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;   ../Drivers/STM32H7xx_HAL_Driver/Inc;   ../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy;   ../Drivers/CMSIS/Device/ST/STM32H7xx/Include;   ../Drivers/CMSIS/Include;   ..\..\..\CherryUSB\class\cdc;   ..\..\..\CherryUSB\common;   ..\..\..\CherryUSB\core</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32H7xx/Include;../Drivers/CMSIS/Include;..\..\..\CherryUSB\common;..\..\..\CherryUSB\core;..\..\..\CherryUSB\class\cdc;..\..\..\CherryUSB\class\msc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -362,7 +362,7 @@
             </VariousControls>
           </Aads>
           <LDads>
-            <umfTarg>1</umfTarg>
+            <umfTarg>0</umfTarg>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
             <noStLib>0</noStLib>
@@ -371,7 +371,7 @@
             <TextAddressRange></TextAddressRange>
             <DataAddressRange></DataAddressRange>
             <pXoBase></pXoBase>
-            <ScatterFile></ScatterFile>
+            <ScatterFile>stm32h743vbt6\stm32h743vbt6.sct</ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
             <Misc></Misc>
@@ -395,11 +395,6 @@
           <GroupName>Application/User/Core</GroupName>
           <Files>
             <File>
-              <FileName>cdc_acm_template.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\CherryUSB\demo\cdc_acm_template.c</FilePath>
-            </File>
-            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/main.c</FilePath>
@@ -413,6 +408,11 @@
               <FileName>stm32h7xx_hal_msp.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32h7xx_hal_msp.c</FilePath>
+            </File>
+            <File>
+              <FileName>cdc_acm_msc_template.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\demo\cdc_acm_msc_template.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -657,9 +657,19 @@
               <FilePath>..\..\..\CherryUSB\core\usbd_core.c</FilePath>
             </File>
             <File>
-              <FileName>usbd_cdc.c</FileName>
+              <FileName>usbd_udc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\CherryUSB\class\cdc\usbd_cdc.c</FilePath>
+              <FilePath>..\..\..\CherryUSB\core\usbd_udc.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_cdc_acm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\class\cdc\usbd_cdc_acm.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_msc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\class\msc\usbd_msc.c</FilePath>
             </File>
             <File>
               <FileName>usb_dc_dwc2.c</FileName>

@@ -67,7 +67,7 @@ int fputc(int ch, FILE *f)
     return ch;
 }
 
-void usb_dc_low_level_init(void)
+void usbd_udc_low_level_init(uint8_t busid)
 {
     /* Peripheral clock enable */
     __HAL_RCC_USB_CLK_ENABLE();
@@ -77,6 +77,14 @@ void usb_dc_low_level_init(void)
 
 }
 
+void usbd_udc_low_level_deinit(uint8_t busid)
+{
+    /* Peripheral clock disable */
+    __HAL_RCC_USB_CLK_DISABLE();
+
+    /* USB interrupt DeInit */
+    HAL_NVIC_DisableIRQ(USB_LP_CAN1_RX0_IRQn);
+}
 /* USER CODE END 0 */
 
 /**
@@ -111,9 +119,11 @@ int main(void)
   //MX_USB_PCD_Init();
   /* USER CODE BEGIN 2 */
 
-    extern void cdc_acm_msc_init(void);
-    cdc_acm_msc_init();
-
+  extern struct usbd_udc_driver fsdev_udc_driver;
+  usbd_bus_add_udc(0, USB_BASE, &fsdev_udc_driver, NULL);
+  
+  extern void cdc_acm_msc_init(uint8_t busid);
+  cdc_acm_msc_init(0);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -122,8 +132,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-        extern void cdc_acm_data_send_with_dtr_test(void);
-        cdc_acm_data_send_with_dtr_test();
+        extern void cdc_acm_data_send_with_dtr_test(uint8_t busid);
+        cdc_acm_data_send_with_dtr_test(0);
         HAL_Delay(100);
     }
   /* USER CODE END 3 */

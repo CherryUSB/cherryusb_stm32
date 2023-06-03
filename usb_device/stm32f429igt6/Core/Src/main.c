@@ -23,7 +23,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "usbd_core.h"
-#include "usbd_cdc.h"
 #include "FreeRTOS.h"
 #include "task.h"
 /* USER CODE END Includes */
@@ -68,7 +67,7 @@ int fputc(int ch, FILE *f)
   return ch;
 }
 
-void usb_dc_low_level_init(void)
+void usbd_udc_low_level_init(uint8_t busid)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
@@ -95,6 +94,20 @@ void usb_dc_low_level_init(void)
     HAL_NVIC_EnableIRQ(OTG_HS_IRQn);
 }
 
+void usbd_udc_low_level_deinit(uint8_t busid)
+{
+    /* Peripheral clock disable */
+    __HAL_RCC_USB_OTG_HS_CLK_DISABLE();
+
+    /**USB_OTG_HS GPIO Configuration
+    PB14     ------> USB_OTG_HS_DM
+    PB15     ------> USB_OTG_HS_DP
+    */
+    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_14|GPIO_PIN_15);
+
+    /* USB_OTG_HS interrupt DeInit */
+    HAL_NVIC_DisableIRQ(OTG_HS_IRQn);
+}
 /* USER CODE END 0 */
 
 /**
@@ -129,9 +142,11 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
-  extern void cdc_acm_msc_init(void);
-
-  cdc_acm_msc_init();
+  extern struct usbd_udc_driver dwc2_udc_driver;
+  usbd_bus_add_udc(0, USB_OTG_HS_PERIPH_BASE, &dwc2_udc_driver, NULL);
+  
+  extern void cdc_acm_msc_init(uint8_t busid);
+  cdc_acm_msc_init(0);
 #if defined(CONFIG_USBDEV_TX_THREAD) || defined(CONFIG_USBDEV_RX_THREAD)
   vTaskStartScheduler();
 #endif
@@ -144,8 +159,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    extern void cdc_acm_data_send_with_dtr_test(void);
-    cdc_acm_data_send_with_dtr_test();
+    extern void cdc_acm_data_send_with_dtr_test(uint8_t busid);
+    cdc_acm_data_send_with_dtr_test(0);
     HAL_Delay(500);
   }
   /* USER CODE END 3 */

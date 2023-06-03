@@ -23,7 +23,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "usbd_core.h"
-#include "usbd_cdc.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -67,7 +66,7 @@ int fputc(int ch, FILE *f)
     return ch;
 }
 
-void usb_dc_low_level_init(void)
+void usbd_udc_low_level_init(uint8_t busid)
 {
     GPIO_InitTypeDef GPIO_InitStruct = { 0 };
     RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = { 0 };
@@ -108,6 +107,9 @@ void usb_dc_low_level_init(void)
     /* USER CODE END USB_OTG_FS_MspInit 1 */
 }
 
+void usbd_udc_low_level_deinit(uint8_t busid)
+{
+}
 /* USER CODE END 0 */
 
 /**
@@ -142,11 +144,12 @@ int main(void)
   //MX_USB_OTG_FS_PCD_Init();
   /* USER CODE BEGIN 2 */
     
-    extern void cdc_acm_init(void);
-    cdc_acm_init();
+  extern struct usbd_udc_driver dwc2_udc_driver;
+  usbd_bus_add_udc(0, USB2_OTG_FS_PERIPH_BASE, &dwc2_udc_driver, NULL);
+  
+  extern void cdc_acm_msc_init(uint8_t busid);
+  cdc_acm_msc_init(0);
 
-    while (!usb_device_is_configured()) {
-    }
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -155,8 +158,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-        extern void cdc_acm_data_send_with_dtr_test(void);
-        cdc_acm_data_send_with_dtr_test();
+        extern void cdc_acm_data_send_with_dtr_test(uint8_t busid);
+        cdc_acm_data_send_with_dtr_test(0);
         HAL_Delay(500);
     }
   /* USER CODE END 3 */

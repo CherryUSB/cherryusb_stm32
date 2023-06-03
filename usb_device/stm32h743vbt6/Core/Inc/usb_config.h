@@ -32,6 +32,9 @@
 
 /* ================= USB Device Stack Configuration ================ */
 
+/* Max bus of device controller */
+#define CONFIG_USBDEV_MAX_BUS 1
+
 /* Ep0 max transfer buffer, specially for receiving data from ep0 out */
 #define CONFIG_USBDEV_REQUEST_BUFFER_LEN 256
 

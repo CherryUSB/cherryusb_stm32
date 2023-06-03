@@ -525,9 +525,14 @@
               <FilePath>..\..\..\CherryUSB\core\usbd_core.c</FilePath>
             </File>
             <File>
-              <FileName>usbd_cdc.c</FileName>
+              <FileName>usbd_udc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\CherryUSB\class\cdc\usbd_cdc.c</FilePath>
+              <FilePath>..\..\..\CherryUSB\core\usbd_udc.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_cdc_acm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\class\cdc\usbd_cdc_acm.c</FilePath>
             </File>
             <File>
               <FileName>usbd_hid.c</FileName>
