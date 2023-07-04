@@ -71,6 +71,62 @@ int fputc(int ch, FILE *f)
 void usb_hc_low_level_init(void)
 {
     GPIO_InitTypeDef GPIO_InitStruct = {0};
+#ifdef CONFIG_USB_DWC2_ULPI_PHY
+    __HAL_RCC_GPIOI_CLK_ENABLE();
+    __HAL_RCC_GPIOC_CLK_ENABLE();
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+    __HAL_RCC_GPIOB_CLK_ENABLE();
+    /**USB_OTG_HS GPIO Configuration    
+    PI11     ------> USB_OTG_HS_ULPI_DIR
+    PC0     ------> USB_OTG_HS_ULPI_STP
+    PC3     ------> USB_OTG_HS_ULPI_NXT
+    PA3     ------> USB_OTG_HS_ULPI_D0
+    PA5     ------> USB_OTG_HS_ULPI_CK
+    PB0     ------> USB_OTG_HS_ULPI_D1
+    PB1     ------> USB_OTG_HS_ULPI_D2
+    PB10     ------> USB_OTG_HS_ULPI_D3
+    PB11     ------> USB_OTG_HS_ULPI_D4
+    PB12     ------> USB_OTG_HS_ULPI_D5
+    PB13     ------> USB_OTG_HS_ULPI_D6
+    PB5     ------> USB_OTG_HS_ULPI_D7 
+    */
+    GPIO_InitStruct.Pin = GPIO_PIN_11;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF10_OTG_HS;
+    HAL_GPIO_Init(GPIOI, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_3;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF10_OTG_HS;
+    HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = GPIO_PIN_3|GPIO_PIN_5;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF10_OTG_HS;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_10|GPIO_PIN_11 
+                          |GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_5;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF10_OTG_HS;
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    /* Peripheral clock enable */
+    __USB_OTG_HS_CLK_ENABLE();
+    __USB_OTG_HS_ULPI_CLK_ENABLE();
+
+    /* Peripheral interrupt init*/
+    HAL_NVIC_SetPriority(OTG_HS_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(OTG_HS_IRQn);
+#else
     __HAL_RCC_GPIOB_CLK_ENABLE();
     /**USB_OTG_HS GPIO Configuration
     PB14     ------> USB_OTG_HS_DM
@@ -88,6 +144,7 @@ void usb_hc_low_level_init(void)
     /* USB_OTG_HS interrupt Init */
     HAL_NVIC_SetPriority(OTG_HS_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(OTG_HS_IRQn);
+#endif
 }
 /* USER CODE END 0 */
 
