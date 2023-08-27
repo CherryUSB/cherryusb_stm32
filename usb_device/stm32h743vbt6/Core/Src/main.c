@@ -145,8 +145,6 @@ int main(void)
     extern void cdc_acm_init(void);
     cdc_acm_init();
 
-    while (!usb_device_is_configured()) {
-    }
   /* USER CODE END 2 */
 
   /* Infinite loop */
