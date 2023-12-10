@@ -591,6 +591,11 @@
               <FilePath>..\..\..\CherryUSB\port\dwc2\usb_dc_dwc2.c</FilePath>
             </File>
             <File>
+              <FileName>usb_glue_st.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\port\dwc2\usb_glue_st.c</FilePath>
+            </File>
+            <File>
               <FileName>usb_osal_freertos.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\CherryUSB\osal\usb_osal_freertos.c</FilePath>
