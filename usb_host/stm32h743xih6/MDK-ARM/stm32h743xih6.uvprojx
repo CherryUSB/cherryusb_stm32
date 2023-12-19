@@ -615,11 +615,6 @@
               <FilePath>..\..\..\CherryUSB\class\msc\usbh_msc.c</FilePath>
             </File>
             <File>
-              <FileName>usbh_rndis.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\CherryUSB\class\wireless\usbh_rndis.c</FilePath>
-            </File>
-            <File>
               <FileName>usbh_audio.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\CherryUSB\class\audio\usbh_audio.c</FilePath>
@@ -638,6 +633,11 @@
               <FileName>usb_hc_dwc2.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\CherryUSB\port\dwc2\usb_hc_dwc2.c</FilePath>
+            </File>
+            <File>
+              <FileName>usb_glue_st.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\port\dwc2\usb_glue_st.c</FilePath>
             </File>
           </Files>
         </Group>
