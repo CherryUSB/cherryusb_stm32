@@ -73,7 +73,7 @@ int fputc(int ch, FILE *f)
 void usb_dc_low_level_init(void)
 {
     GPIO_InitTypeDef GPIO_InitStruct = {0};
-#if CONFIG_USB_DWC2_PORT == FS_PORT
+#if 0
     __HAL_RCC_GPIOA_CLK_ENABLE();
     /**USB_OTG_FS GPIO Configuration
     PA11     ------> USB_OTG_FS_DM

@@ -338,7 +338,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>USE_HAL_DRIVER,STM32F429xx,CONFIG_USB_DWC2_PORT=HS_PORT</Define>
+              <Define>USE_HAL_DRIVER,STM32F429xx</Define>
               <Undefine></Undefine>
               <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\..\..\CherryUSB\core;..\..\..\CherryUSB\common;..\..\..\CherryUSB\class\cdc;..\..\..\CherryUSB\class\msc;..\..\..\CherryUSB\class\hid;..\..\..\CherryUSB\class\audio;..\..\..\CherryUSB\class\video;..\..\..\CherryUSB\third_party\FreeRTOS-10.4\include;..\..\..\CherryUSB\third_party\FreeRTOS-10.4\portable\GCC\ARM_CM4F;..\..\..\CherryUSB\osal</IncludePath>
             </VariousControls>

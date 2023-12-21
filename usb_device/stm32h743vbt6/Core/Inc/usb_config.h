@@ -113,13 +113,16 @@
 
 /* ================ USB Device Port Configuration ================*/
 
-//#define USBD_IRQHandler USBD_IRQHandler
-//#define USB_BASE (0x40080000UL)
-//#define USB_NUM_BIDIR_ENDPOINTS 4
+#define USBD_IRQHandler OTG_HS_IRQHandler
+#define USBD_BASE (0x40080000UL)
+#define CONFIG_USBDEV_EP_NUM 4
+#define CONFIG_USB_DWC2_RAM_SIZE 1280
 
 /* ================ USB Host Port Configuration ==================*/
 
-#define CONFIG_USBHOST_PIPE_NUM 10
+#define USBH_BASE (0x40040000UL)
+#define USBH_IRQHandler OTG_HS_IRQHandler
+#define CONFIG_USBHOST_PIPE_NUM 12
 
 /* ================ EHCI Configuration ================ */
 

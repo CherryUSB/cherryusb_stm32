@@ -113,9 +113,10 @@
 
 /* ================ USB Device Port Configuration ================*/
 
-//#define USBD_IRQHandler USBD_IRQHandler
-//#define USB_BASE (0x40080000UL)
-//#define USB_NUM_BIDIR_ENDPOINTS 4
+#define USBD_IRQHandler USB_LP_CAN1_RX0_IRQHandler
+#define USBD_BASE (0x40005C00UL)
+#define CONFIG_USBDEV_EP_NUM 8
+#define CONFIG_USBDEV_FSDEV_PMA_ACCESS 2
 
 /* ================ USB Host Port Configuration ==================*/
 
