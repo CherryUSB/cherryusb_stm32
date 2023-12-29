@@ -338,7 +338,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>USE_HAL_DRIVER,STM32H743xx,STM32H7</Define>
+              <Define>USE_HAL_DRIVER,STM32H743xx</Define>
               <Undefine></Undefine>
               <IncludePath>../Core/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc;../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32H7xx/Include;../Drivers/CMSIS/Include;..\..\..\CherryUSB\core;..\..\..\CherryUSB\common;..\..\..\CherryUSB\osal;..\..\..\CherryUSB\class\cdc;..\..\..\CherryUSB\class\hid;..\..\..\CherryUSB\class\msc;..\..\..\CherryUSB\class\hub;..\..\..\CherryUSB\class\wireless;..\..\..\CherryUSB\class\video;..\..\..\CherryUSB\class\audio;..\..\..\CherryUSB\third_party\FreeRTOS-10.4\include;..\..\..\CherryUSB\third_party\FreeRTOS-10.4\portable\GCC\ARM_CM7\r0p1</IncludePath>
             </VariousControls>
