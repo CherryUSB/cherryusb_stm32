@@ -39,7 +39,7 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
+struct usbh_bus *usb_otg_hs_bus;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -68,7 +68,7 @@ int fputc(int ch, FILE *f)
   return ch;
 }
 
-void usb_hc_low_level_init(void)
+void usb_hc_low_level_init(struct usbh_bus *bus)
 {
     GPIO_InitTypeDef GPIO_InitStruct = {0};
 #ifdef CONFIG_USB_DWC2_ULPI_PHY
@@ -180,8 +180,9 @@ int main(void)
   //MX_USB_OTG_HS_HCD_Init();
   /* USER CODE BEGIN 2 */
   printf("Start usb host task...\r\n");
+  usb_otg_hs_bus = usbh_alloc_bus(0, USB_OTG_HS_PERIPH_BASE);
   extern void usbh_class_test(void);                   
-  usbh_initialize();
+  usbh_initialize(usb_otg_hs_bus);
   usbh_class_test();
   vTaskStartScheduler();
   /* USER CODE END 2 */

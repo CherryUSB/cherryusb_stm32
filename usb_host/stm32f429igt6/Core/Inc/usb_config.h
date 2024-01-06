@@ -91,6 +91,7 @@
 
 /* ================ USB HOST Stack Configuration ================== */
 
+#define CONFIG_USBHOST_MAX_BUS              1
 #define CONFIG_USBHOST_MAX_RHPORTS          1
 #define CONFIG_USBHOST_MAX_EXTHUBS          1
 #define CONFIG_USBHOST_MAX_EHPORTS          4
@@ -138,18 +139,16 @@
 
 /* ================ USB Host Port Configuration ==================*/
 
-#define USBH_BASE (0x40040000UL)
-#define USBH_IRQHandler OTG_HS_IRQHandler
 #define CONFIG_USBHOST_PIPE_NUM 12
 
 /* ================ EHCI Configuration ================ */
 
-#define CONFIG_USB_EHCI_HCCR_BASE       (0x20072000)
-#define CONFIG_USB_EHCI_HCOR_BASE       (0x20072000 + 0x10)
+#define CONFIG_USB_EHCI_HCOR_OFFSET     (0x10)
 #define CONFIG_USB_EHCI_FRAME_LIST_SIZE 1024
 // #define CONFIG_USB_EHCI_INFO_ENABLE
 // #define CONFIG_USB_EHCI_HCOR_RESERVED_DISABLE
 // #define CONFIG_USB_EHCI_CONFIGFLAG
 // #define CONFIG_USB_EHCI_PORT_POWER
+// #define CONFIG_USB_EHCI_PRINT_HW_PARAM
 
 #endif
