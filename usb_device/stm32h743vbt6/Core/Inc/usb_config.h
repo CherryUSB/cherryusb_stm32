@@ -45,6 +45,10 @@
 /* Enable test mode */
 // #define CONFIG_USBDEV_TEST_MODE
 
+#ifndef CONFIG_USBDEV_MSC_MAX_LUN
+#define CONFIG_USBDEV_MSC_MAX_LUN 1
+#endif
+
 #ifndef CONFIG_USBDEV_MSC_MAX_BUFSIZE
 #define CONFIG_USBDEV_MSC_MAX_BUFSIZE 512
 #endif
@@ -130,6 +134,8 @@
 #endif
 
 /* ================ USB Device Port Configuration ================*/
+
+#define CONFIG_USBDEV_MAX_BUS 1
 
 #define USBD_IRQHandler OTG_FS_IRQHandler
 #define USBD_BASE (0x40080000UL)
