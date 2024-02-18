@@ -142,8 +142,8 @@ int main(void)
   //MX_USB_OTG_FS_PCD_Init();
   /* USER CODE BEGIN 2 */
     
-    extern void cdc_acm_init(void);
-    cdc_acm_init();
+    extern void cdc_acm_init(uint8_t busid, uint32_t reg_base);
+    cdc_acm_init(0, USB_OTG_FS_PERIPH_BASE);
 
   /* USER CODE END 2 */
 
@@ -153,8 +153,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-        extern void cdc_acm_data_send_with_dtr_test(void);
-        cdc_acm_data_send_with_dtr_test();
+        extern void cdc_acm_data_send_with_dtr_test(uint8_t busid);
+        cdc_acm_data_send_with_dtr_test(0);
         HAL_Delay(500);
     }
   /* USER CODE END 3 */

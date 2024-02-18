@@ -216,11 +216,9 @@ void OTG_HS_IRQHandler(void)
 
   /* USER CODE END OTG_HS_IRQn 0 */
 //  HAL_HCD_IRQHandler(&hhcd_USB_OTG_HS);
-    extern struct usbh_bus *usb_otg_hs_bus;
-    extern void USBH_IRQHandler(struct usbh_bus *bus);
-    USBH_IRQHandler(usb_otg_hs_bus);
   /* USER CODE BEGIN OTG_HS_IRQn 1 */
-
+    extern void USBH_IRQHandler(uint8_t busid);
+    USBH_IRQHandler(0);
   /* USER CODE END OTG_HS_IRQn 1 */
 }
 

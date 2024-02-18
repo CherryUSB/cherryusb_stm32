@@ -203,9 +203,9 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
-  extern void cdc_acm_msc_init(void);
+  extern void cdc_acm_msc_init(uint8_t busid, uint32_t reg_base);
 
-  cdc_acm_msc_init();
+  cdc_acm_msc_init(0, USB_OTG_HS_PERIPH_BASE);
 #if defined(CONFIG_USBDEV_MSC_THREAD)
   vTaskStartScheduler();
 #endif
@@ -218,8 +218,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    extern void cdc_acm_data_send_with_dtr_test(void);
-    cdc_acm_data_send_with_dtr_test();
+    extern void cdc_acm_data_send_with_dtr_test(uint8_t busid);
+    cdc_acm_data_send_with_dtr_test(0);
     HAL_Delay(500);
   }
   /* USER CODE END 3 */

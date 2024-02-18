@@ -136,8 +136,6 @@
 /* ================ USB Device Port Configuration ================*/
 #define CONFIG_USBDEV_MAX_BUS 1
 
-#define USBD_IRQHandler USB_LP_CAN1_RX0_IRQHandler
-#define USBD_BASE (0x40005C00UL)
 #define CONFIG_USBDEV_EP_NUM 8
 #define CONFIG_USBDEV_FSDEV_PMA_ACCESS 2
 

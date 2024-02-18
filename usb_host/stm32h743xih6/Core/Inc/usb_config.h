@@ -132,8 +132,6 @@
 
 /* ================ USB Device Port Configuration ================*/
 
-#define USBD_IRQHandler OTG_HS_IRQHandler
-#define USBD_BASE (0x40040000UL)
 #define CONFIG_USBDEV_EP_NUM 6
 #define CONFIG_USB_DWC2_RAM_SIZE 4096
 

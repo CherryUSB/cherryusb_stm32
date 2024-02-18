@@ -39,7 +39,7 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-struct usbh_bus *usb_otg_hs_bus;
+
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -180,9 +180,9 @@ int main(void)
   //MX_USB_OTG_HS_HCD_Init();
   /* USER CODE BEGIN 2 */
   printf("Start usb host task...\r\n");
-  usb_otg_hs_bus = usbh_alloc_bus(0, USB_OTG_HS_PERIPH_BASE);
+
   extern void usbh_class_test(void);                   
-  usbh_initialize(usb_otg_hs_bus);
+  usbh_initialize(0, USB_OTG_HS_PERIPH_BASE);
   usbh_class_test();
   vTaskStartScheduler();
   /* USER CODE END 2 */

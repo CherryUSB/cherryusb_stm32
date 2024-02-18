@@ -49,7 +49,7 @@ UART_HandleTypeDef huart1;
 HCD_HandleTypeDef hhcd_USB_OTG_HS;
 
 /* USER CODE BEGIN PV */
-struct usbh_bus *usb_otg_hs_bus;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -267,9 +267,9 @@ int main(void)
   cpu_mpu_config(0, MPU_Normal_NonCache, 0x24070000, MPU_REGION_SIZE_64KB);
 
   printf("Start usb host task...\r\n");
-  usb_otg_hs_bus = usbh_alloc_bus(0, USB_OTG_HS_PERIPH_BASE);
+
   extern void usbh_class_test(void);                   
-  usbh_initialize(usb_otg_hs_bus);
+  usbh_initialize(0, USB_OTG_HS_PERIPH_BASE);
   usbh_class_test();
   vTaskStartScheduler();
   /* USER CODE END 2 */
