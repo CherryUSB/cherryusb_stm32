@@ -133,11 +133,13 @@
 /* ================ USB Device Port Configuration ================*/
 
 #define CONFIG_USBDEV_EP_NUM 6
-#define CONFIG_USB_DWC2_RAM_SIZE 4096
 
 /* ================ USB Host Port Configuration ==================*/
 
 #define CONFIG_USBHOST_PIPE_NUM 12
+#define CONFIG_USB_DWC2_NPTX_FIFO_SIZE (512 / 4)
+#define CONFIG_USB_DWC2_PTX_FIFO_SIZE (1024 / 4)
+#define CONFIG_USB_DWC2_RX_FIFO_SIZE ((952 - CONFIG_USB_DWC2_NPTX_FIFO_SIZE - CONFIG_USB_DWC2_PTX_FIFO_SIZE) / 4)
 
 /* ================ EHCI Configuration ================ */
 
