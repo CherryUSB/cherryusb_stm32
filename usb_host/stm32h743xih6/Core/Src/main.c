@@ -65,7 +65,12 @@ static void MX_USB_OTG_HS_HCD_Init(void);
 /* USER CODE BEGIN 0 */
 int fputc(int ch, FILE *f)
 {
-  HAL_UART_Transmit(&huart1,(uint8_t*)&ch,1,1000);
+  USART1->TDR = ch;
+  /* Wait for TC flag to be raised for last char */
+  while ((USART1->ISR & USART_ISR_TC) == RESET)
+  {
+  }
+
   return ch;
 }
 
@@ -234,6 +239,7 @@ void cpu_mpu_config(uint8_t Region, uint8_t Mode, uint32_t Address, uint32_t Siz
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+  cpu_mpu_config(0, MPU_Normal_NonCache, 0x24070000, MPU_REGION_SIZE_64KB);
 
   /* USER CODE END 1 */
 
@@ -263,8 +269,6 @@ int main(void)
   MX_USART1_UART_Init();
   //MX_USB_OTG_HS_HCD_Init();
   /* USER CODE BEGIN 2 */
-
-  cpu_mpu_config(0, MPU_Normal_NonCache, 0x24070000, MPU_REGION_SIZE_64KB);
 
   printf("Start usb host task...\r\n");
 
