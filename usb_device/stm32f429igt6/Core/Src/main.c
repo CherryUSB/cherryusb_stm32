@@ -73,7 +73,7 @@ int fputc(int ch, FILE *f)
 void usb_dc_low_level_init(void)
 {
     GPIO_InitTypeDef GPIO_InitStruct = {0};
-#if 0
+#if 0 /* when you enable this, cannot use cdc+msc, because of less endpoints, please use cdc demo*/
     __HAL_RCC_GPIOA_CLK_ENABLE();
     /**USB_OTG_FS GPIO Configuration
     PA11     ------> USB_OTG_FS_DM
@@ -206,6 +206,7 @@ int main(void)
   extern void cdc_acm_msc_init(uint8_t busid, uint32_t reg_base);
 
   cdc_acm_msc_init(0, USB_OTG_HS_PERIPH_BASE);
+  //cdc_acm_init(0, USB_OTG_FS_PERIPH_BASE);
 #if defined(CONFIG_USBDEV_MSC_THREAD)
   vTaskStartScheduler();
 #endif
