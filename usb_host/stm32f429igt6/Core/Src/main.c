@@ -64,7 +64,12 @@ static void MX_USB_OTG_HS_HCD_Init(void);
 /* USER CODE BEGIN 0 */
 int fputc(int ch, FILE *f)
 {
-  HAL_UART_Transmit(&huart1,(uint8_t*)&ch,1,1000);
+  USART1->DR = ch;
+  /* Wait for TC flag to be raised for last char */
+  while ((USART1->SR & UART_FLAG_TC) == RESET)
+  {
+  }
+
   return ch;
 }
 
