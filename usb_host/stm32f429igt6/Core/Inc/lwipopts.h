@@ -193,5 +193,7 @@
 #define LWIP_SINGLE_NETIF               1
 #define LWIP_COMPAT_MUTEX               0
 
+#define LWIP_TCPIP_CORE_LOCKING       1
+#define LWIP_TCPIP_CORE_LOCKING_INPUT 1
 
 #endif /* __LWIPOPTS_H__ */

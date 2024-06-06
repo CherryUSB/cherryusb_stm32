@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F429xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\..\..\CherryUSB\common;..\..\..\CherryUSB\core;..\..\..\CherryUSB\class\cdc;..\..\..\CherryUSB\class\hub;..\..\..\CherryUSB\class\hid;..\..\..\CherryUSB\class\msc;..\..\..\CherryUSB\class\wireless;..\..\..\CherryUSB\class\video;..\..\..\CherryUSB\class\audio;..\..\..\CherryUSB\osal;..\..\..\CherryUSB\third_party\FreeRTOS-10.4\include;..\..\..\CherryUSB\third_party\FreeRTOS-10.4\portable\GCC\ARM_CM4F;..\..\..\CherryUSB\third_party\fatfs-0.14\source;..\..\..\lwip-2.1.2\src\include;..\..\..\lwip-2.1.2\src\include\lwip\apps</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\..\..\CherryUSB\common;..\..\..\CherryUSB\core;..\..\..\CherryUSB\class\cdc;..\..\..\CherryUSB\class\hub;..\..\..\CherryUSB\class\hid;..\..\..\CherryUSB\class\msc;..\..\..\CherryUSB\class\wireless;..\..\..\CherryUSB\class\video;..\..\..\CherryUSB\class\audio;..\..\..\CherryUSB\osal;..\..\..\CherryUSB\third_party\FreeRTOS-10.4\include;..\..\..\CherryUSB\third_party\FreeRTOS-10.4\portable\GCC\ARM_CM4F;..\..\..\CherryUSB\third_party\fatfs-0.14\source;..\..\..\lwip-2.1.2\src\include;..\..\..\lwip-2.1.2\src\include\lwip\apps;..\..\..\CherryUSB\class\vendor\net;..\..\..\CherryUSB\class\vendor\serial</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -634,6 +634,31 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\CherryUSB\port\dwc2\usb_glue_st.c</FilePath>
             </File>
+            <File>
+              <FileName>usbh_fatfs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\platform\none\usbh_fatfs.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_lwip.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\platform\none\usbh_lwip.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_asix.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\class\vendor\net\usbh_asix.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_rtl8152.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\class\vendor\net\usbh_rtl8152.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_cdc_ncm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\class\cdc\usbh_cdc_ncm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -658,11 +683,6 @@
               <FileName>ffunicode.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\CherryUSB\third_party\fatfs-0.14\source\ffunicode.c</FilePath>
-            </File>
-            <File>
-              <FileName>fatfs_usbh.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\CherryUSB\third_party\fatfs-0.14\source\port\fatfs_usbh.c</FilePath>
             </File>
           </Files>
         </Group>

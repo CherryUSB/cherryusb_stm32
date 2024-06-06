@@ -271,10 +271,9 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   printf("Start usb host task...\r\n");
-
-  extern void usbh_class_test(void);                   
+                  
   usbh_initialize(0, USB_OTG_HS_PERIPH_BASE);
-  usbh_class_test();
+
   vTaskStartScheduler();
   /* USER CODE END 2 */
 
