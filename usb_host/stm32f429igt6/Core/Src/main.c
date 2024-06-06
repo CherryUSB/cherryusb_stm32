@@ -77,7 +77,7 @@ int fputc(int ch, FILE *f)
 void usb_hc_low_level_init(struct usbh_bus *bus)
 {
     GPIO_InitTypeDef GPIO_InitStruct = {0};
-#ifdef CONFIG_USB_DWC2_ULPI_PHY
+#ifdef CONFIG_USB_HS
     __HAL_RCC_GPIOI_CLK_ENABLE();
     __HAL_RCC_GPIOC_CLK_ENABLE();
     __HAL_RCC_GPIOA_CLK_ENABLE();
