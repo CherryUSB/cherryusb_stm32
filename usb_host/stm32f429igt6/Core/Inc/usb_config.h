@@ -6,15 +6,18 @@
 #ifndef CHERRYUSB_CONFIG_H
 #define CHERRYUSB_CONFIG_H
 
-#define CHERRYUSB_VERSION     0x010200
-#define CHERRYUSB_VERSION_STR "v1.2.0"
+#define CHERRYUSB_VERSION     0x010300
+#define CHERRYUSB_VERSION_STR "v1.3.0"
 
 /* ================ USB common Configuration ================ */
 
+#include "FreeRTOS.h"
+#include "task.h"
+
 #define CONFIG_USB_PRINTF(...) printf(__VA_ARGS__)
 
-#define usb_malloc(size) malloc(size)
-#define usb_free(ptr)    free(ptr)
+#define usb_malloc(size) pvPortMalloc(size)
+#define usb_free(ptr)    vPortFree(ptr)
 
 #ifndef CONFIG_USB_DBG_LEVEL
 #define CONFIG_USB_DBG_LEVEL USB_DBG_INFO
