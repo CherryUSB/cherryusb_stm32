@@ -6,15 +6,9 @@
 #ifndef CHERRYUSB_CONFIG_H
 #define CHERRYUSB_CONFIG_H
 
-#define CHERRYUSB_VERSION     0x010200
-#define CHERRYUSB_VERSION_STR "v1.2.0"
-
 /* ================ USB common Configuration ================ */
 
 #define CONFIG_USB_PRINTF(...) printf(__VA_ARGS__)
-
-#define usb_malloc(size) malloc(size)
-#define usb_free(ptr)    free(ptr)
 
 #ifndef CONFIG_USB_DBG_LEVEL
 #define CONFIG_USB_DBG_LEVEL USB_DBG_INFO
@@ -233,7 +227,7 @@
  * (largest USB packet used / 4) + 1 for status information + 1 transfer complete +
  * 1 location each for Bulk/Control endpoint for handling NAK/NYET scenario
  */
-// #define CONFIG_USB_DWC2_RX_FIFO_SIZE ((1012 - CONFIG_USB_DWC2_NPTX_FIFO_SIZE - CONFIG_USB_DWC2_PTX_FIFO_SIZE) / 4)
+// #define CONFIG_USB_DWC2_RX_FIFO_SIZE ((1012 - CONFIG_USB_DWC2_NPTX_FIFO_SIZE - CONFIG_USB_DWC2_PTX_FIFO_SIZE))
 
 /* ---------------- MUSB Configuration ---------------- */
 // #define CONFIG_USB_MUSB_SUNXI

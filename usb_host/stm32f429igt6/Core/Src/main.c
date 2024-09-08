@@ -27,6 +27,8 @@
 #include "stdio.h"
 #include "usbh_core.h"
 #include "lwip/tcpip.h"
+#include "usbh_uvc_stream.h"
+#include "usbh_uac_stream.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -58,6 +60,12 @@ static void MX_GPIO_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_USB_OTG_HS_HCD_Init(void);
 /* USER CODE BEGIN PFP */
+//static USB_MEM_ALIGNX uint8_t frame_buffer1[160 * 120 * 2];
+//static USB_MEM_ALIGNX uint8_t frame_buffer2[160 * 120 * 2];
+//static struct usbh_videoframe frame_pool[2];
+
+//static USB_MEM_ALIGNX uint8_t frame_buffer[256 * 8];
+//static struct usbh_audioframe frame_pool2[8];
 
 /* USER CODE END PFP */
 
@@ -82,7 +90,7 @@ void usb_hc_low_level_init(struct usbh_bus *bus)
     __HAL_RCC_GPIOC_CLK_ENABLE();
     __HAL_RCC_GPIOA_CLK_ENABLE();
     __HAL_RCC_GPIOB_CLK_ENABLE();
-    /**USB_OTG_HS GPIO Configuration    
+    /**USB_OTG_HS GPIO Configuration
     PI11     ------> USB_OTG_HS_ULPI_DIR
     PC0     ------> USB_OTG_HS_ULPI_STP
     PC3     ------> USB_OTG_HS_ULPI_NXT
@@ -94,7 +102,7 @@ void usb_hc_low_level_init(struct usbh_bus *bus)
     PB11     ------> USB_OTG_HS_ULPI_D4
     PB12     ------> USB_OTG_HS_ULPI_D5
     PB13     ------> USB_OTG_HS_ULPI_D6
-    PB5     ------> USB_OTG_HS_ULPI_D7 
+    PB5     ------> USB_OTG_HS_ULPI_D7
     */
     GPIO_InitStruct.Pin = GPIO_PIN_11;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -117,7 +125,7 @@ void usb_hc_low_level_init(struct usbh_bus *bus)
     GPIO_InitStruct.Alternate = GPIO_AF10_OTG_HS;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-    GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_10|GPIO_PIN_11 
+    GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_10|GPIO_PIN_11
                           |GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_5;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
@@ -189,6 +197,22 @@ int main(void)
 
   /* Initialize the LwIP stack */
   tcpip_init(NULL, NULL);
+
+//  frame_pool[0].frame_buf = frame_buffer1;
+//  frame_pool[0].frame_bufsize = 160 * 120 * 2;
+//  frame_pool[1].frame_buf = frame_buffer2;
+//  frame_pool[1].frame_bufsize = 160 * 120 * 2;
+
+//  usbh_video_stream_init(5, frame_pool, 2);
+
+//  for (uint32_t i = 0; i < 8; i++)
+//  {
+//    frame_pool2[i].frame_buf = frame_buffer + i * 256;
+//    frame_pool2[i].frame_bufsize = 256;
+//  }
+
+  //usbh_audio_mic_stream_init(5, frame_pool2, 8);
+  //usbh_video_fps_init();
 
   usbh_initialize(0, USB_OTG_HS_PERIPH_BASE);
 

@@ -639,8 +639,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\CherryUSB\class\cdc\usbd_cdc.c</PathWithFileName>
-      <FilenameWithoutPath>usbd_cdc.c</FilenameWithoutPath>
+      <PathWithFileName>..\..\..\CherryUSB\port\dwc2\usb_dc_dwc2.c</PathWithFileName>
+      <FilenameWithoutPath>usb_dc_dwc2.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -651,8 +651,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\CherryUSB\port\dwc2\usb_dc_dwc2.c</PathWithFileName>
-      <FilenameWithoutPath>usb_dc_dwc2.c</FilenameWithoutPath>
+      <PathWithFileName>..\..\..\CherryUSB\port\dwc2\usb_glue_st.c</PathWithFileName>
+      <FilenameWithoutPath>usb_glue_st.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -663,8 +663,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\CherryUSB\port\dwc2\usb_glue_st.c</PathWithFileName>
-      <FilenameWithoutPath>usb_glue_st.c</FilenameWithoutPath>
+      <PathWithFileName>..\..\..\CherryUSB\class\cdc\usbd_cdc_acm.c</PathWithFileName>
+      <FilenameWithoutPath>usbd_cdc_acm.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

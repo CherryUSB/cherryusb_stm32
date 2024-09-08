@@ -657,11 +657,6 @@
               <FilePath>..\..\..\CherryUSB\core\usbd_core.c</FilePath>
             </File>
             <File>
-              <FileName>usbd_cdc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\CherryUSB\class\cdc\usbd_cdc.c</FilePath>
-            </File>
-            <File>
               <FileName>usb_dc_dwc2.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\CherryUSB\port\dwc2\usb_dc_dwc2.c</FilePath>
@@ -670,6 +665,11 @@
               <FileName>usb_glue_st.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\CherryUSB\port\dwc2\usb_glue_st.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_cdc_acm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\class\cdc\usbd_cdc_acm.c</FilePath>
             </File>
           </Files>
         </Group>

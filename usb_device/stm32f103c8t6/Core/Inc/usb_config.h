@@ -6,15 +6,9 @@
 #ifndef CHERRYUSB_CONFIG_H
 #define CHERRYUSB_CONFIG_H
 
-#define CHERRYUSB_VERSION     0x010000
-#define CHERRYUSB_VERSION_STR "v1.0.0"
-
 /* ================ USB common Configuration ================ */
 
 #define CONFIG_USB_PRINTF(...) printf(__VA_ARGS__)
-
-#define usb_malloc(size) malloc(size)
-#define usb_free(ptr)    free(ptr)
 
 #ifndef CONFIG_USB_DBG_LEVEL
 #define CONFIG_USB_DBG_LEVEL USB_DBG_INFO

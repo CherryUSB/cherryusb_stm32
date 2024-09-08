@@ -70,7 +70,7 @@ int fputc(int ch, FILE *f)
   return ch;
 }
 
-void usb_dc_low_level_init(void)
+void usb_dc_low_level_init(uint8_t busid)
 {
     GPIO_InitTypeDef GPIO_InitStruct = {0};
 #if 0 /* when you enable this, cannot use cdc+msc, because of less endpoints, please use cdc demo*/
@@ -169,6 +169,22 @@ void usb_dc_low_level_init(void)
 #endif
 }
 
+void usb_dc_low_level_deinit(uint8_t busid)
+{
+  /* USER CODE END USB_OTG_HS_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_USB_OTG_HS_CLK_DISABLE();
+
+    /**USB_OTG_HS GPIO Configuration
+    PB14     ------> USB_OTG_HS_DM
+    PB15     ------> USB_OTG_HS_DP
+    */
+    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_14|GPIO_PIN_15);
+
+    /* USB_OTG_HS interrupt DeInit */
+    HAL_NVIC_DisableIRQ(OTG_HS_IRQn);
+  /* USER CODE BEGIN USB_OTG_HS_MspDeInit 1 */
+}
 /* USER CODE END 0 */
 
 /**

@@ -525,11 +525,6 @@
               <FilePath>..\..\..\CherryUSB\core\usbd_core.c</FilePath>
             </File>
             <File>
-              <FileName>usbd_cdc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\CherryUSB\class\cdc\usbd_cdc.c</FilePath>
-            </File>
-            <File>
               <FileName>usbd_hid.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\CherryUSB\class\hid\usbd_hid.c</FilePath>
@@ -543,6 +538,11 @@
               <FileName>usb_dc_fsdev.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\CherryUSB\port\fsdev\usb_dc_fsdev.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_cdc_acm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\class\cdc\usbd_cdc_acm.c</FilePath>
             </File>
           </Files>
         </Group>

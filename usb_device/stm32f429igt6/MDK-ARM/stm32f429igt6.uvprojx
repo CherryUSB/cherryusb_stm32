@@ -566,11 +566,6 @@
           <GroupName>CherryUSB</GroupName>
           <Files>
             <File>
-              <FileName>usbd_cdc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\CherryUSB\class\cdc\usbd_cdc.c</FilePath>
-            </File>
-            <File>
               <FileName>usbd_msc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\CherryUSB\class\msc\usbd_msc.c</FilePath>
@@ -599,6 +594,11 @@
               <FileName>usb_osal_freertos.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\CherryUSB\osal\usb_osal_freertos.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_cdc_acm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\class\cdc\usbd_cdc_acm.c</FilePath>
             </File>
           </Files>
         </Group>

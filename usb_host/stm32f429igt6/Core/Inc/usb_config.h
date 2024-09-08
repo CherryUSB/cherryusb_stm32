@@ -6,18 +6,9 @@
 #ifndef CHERRYUSB_CONFIG_H
 #define CHERRYUSB_CONFIG_H
 
-#define CHERRYUSB_VERSION     0x010300
-#define CHERRYUSB_VERSION_STR "v1.3.0"
-
 /* ================ USB common Configuration ================ */
 
-#include "FreeRTOS.h"
-#include "task.h"
-
 #define CONFIG_USB_PRINTF(...) printf(__VA_ARGS__)
-
-#define usb_malloc(size) pvPortMalloc(size)
-#define usb_free(ptr)    vPortFree(ptr)
 
 #ifndef CONFIG_USB_DBG_LEVEL
 #define CONFIG_USB_DBG_LEVEL USB_DBG_INFO
@@ -131,7 +122,7 @@
 
 /* Ep0 max transfer buffer */
 #ifndef CONFIG_USBHOST_REQUEST_BUFFER_LEN
-#define CONFIG_USBHOST_REQUEST_BUFFER_LEN 512
+#define CONFIG_USBHOST_REQUEST_BUFFER_LEN 2048
 #endif
 
 #ifndef CONFIG_USBHOST_CONTROL_TRANSFER_TIMEOUT
@@ -251,16 +242,22 @@
 
 /* ---------------- DWC2 Configuration ---------------- */
 /* largest non-periodic USB packet used / 4 */
-// #define CONFIG_USB_DWC2_NPTX_FIFO_SIZE (512 / 4)
+#define CONFIG_USB_DWC2_NPTX_FIFO_SIZE (512 / 4)
 /* largest periodic USB packet used / 4 */
-// #define CONFIG_USB_DWC2_PTX_FIFO_SIZE (1024 / 4)
+#define CONFIG_USB_DWC2_PTX_FIFO_SIZE (1024 / 4)
 /*
  * (largest USB packet used / 4) + 1 for status information + 1 transfer complete +
  * 1 location each for Bulk/Control endpoint for handling NAK/NYET scenario
  */
-// #define CONFIG_USB_DWC2_RX_FIFO_SIZE ((1012 - CONFIG_USB_DWC2_NPTX_FIFO_SIZE - CONFIG_USB_DWC2_PTX_FIFO_SIZE) / 4)
+#define CONFIG_USB_DWC2_RX_FIFO_SIZE ((1012 - CONFIG_USB_DWC2_NPTX_FIFO_SIZE - CONFIG_USB_DWC2_PTX_FIFO_SIZE))
 
 /* ---------------- MUSB Configuration ---------------- */
 // #define CONFIG_USB_MUSB_SUNXI
+
+#define CONFIG_USBHOST_PLATFORM_CDC_ECM
+#define CONFIG_USBHOST_PLATFORM_CDC_RNDIS
+#define CONFIG_USBHOST_PLATFORM_CDC_NCM
+#define CONFIG_USBHOST_PLATFORM_ASIX
+#define CONFIG_USBHOST_PLATFORM_RTL8152
 
 #endif

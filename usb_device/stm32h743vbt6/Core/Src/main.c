@@ -67,7 +67,7 @@ int fputc(int ch, FILE *f)
     return ch;
 }
 
-void usb_dc_low_level_init(void)
+void usb_dc_low_level_init(uint8_t busid)
 {
     GPIO_InitTypeDef GPIO_InitStruct = { 0 };
     RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = { 0 };
@@ -108,6 +108,26 @@ void usb_dc_low_level_init(void)
     /* USER CODE END USB_OTG_FS_MspInit 1 */
 }
 
+void usb_dc_low_level_deinit(uint8_t busid)
+{
+  /* USER CODE BEGIN USB_OTG_FS_MspDeInit 0 */
+
+  /* USER CODE END USB_OTG_FS_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_USB_OTG_FS_CLK_DISABLE();
+
+    /**USB_OTG_FS GPIO Configuration
+    PA11     ------> USB_OTG_FS_DM
+    PA12     ------> USB_OTG_FS_DP
+    */
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_11|GPIO_PIN_12);
+
+    /* USB_OTG_FS interrupt DeInit */
+    HAL_NVIC_DisableIRQ(OTG_FS_IRQn);
+  /* USER CODE BEGIN USB_OTG_FS_MspDeInit 1 */
+
+  /* USER CODE END USB_OTG_FS_MspDeInit 1 */
+}
 /* USER CODE END 0 */
 
 /**
