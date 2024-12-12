@@ -27,8 +27,8 @@
 #include "stdio.h"
 #include "usbh_core.h"
 #include "lwip/tcpip.h"
-#include "usbh_uvc_stream.h"
-#include "usbh_uac_stream.h"
+//#include "usbh_uvc_stream.h"
+//#include "usbh_uac_stream.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -211,7 +211,7 @@ int main(void)
 //    frame_pool2[i].frame_bufsize = 256;
 //  }
 
-  //usbh_audio_mic_stream_init(5, frame_pool2, 8);
+//  usbh_audio_mic_stream_init(5, frame_pool2, 8);
   //usbh_video_fps_init();
 
   usbh_initialize(0, USB_OTG_HS_PERIPH_BASE);
