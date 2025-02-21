@@ -21,3 +21,5 @@
 *.uvguix.*
 *.scvd
 *.usb.tmp
+**/DebugConfig/**
+*.uvmpw.uvgui.*
