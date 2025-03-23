@@ -87,7 +87,9 @@ void usb_hc_low_level_init(uint8_t busid)
   /** Enable USB Voltage detector
   */
     HAL_PWREx_EnableUSBVoltageDetector();
-
+    /* Enable the USB HS regulator. */
+    HAL_PWREx_EnableUSBHSregulator();
+    
     /* Peripheral clock enable */
     __HAL_RCC_USB_OTG_HS_CLK_ENABLE();
     __HAL_RCC_USBPHYC_CLK_ENABLE();
