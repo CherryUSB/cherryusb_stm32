@@ -230,7 +230,7 @@
 // #define CONFIG_USB_DWC2_TX7_FIFO_SIZE (0 / 4)
 // #define CONFIG_USB_DWC2_TX8_FIFO_SIZE (0 / 4)
 
-// #define CONFIG_USB_DWC2_DMA_ENABLE
+#define CONFIG_USB_DWC2_DMA_ENABLE
 
 /* ---------------- MUSB Configuration ---------------- */
 // #define CONFIG_USB_MUSB_SUNXI
