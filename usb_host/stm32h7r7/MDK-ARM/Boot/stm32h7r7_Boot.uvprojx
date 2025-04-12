@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32H7R7xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../../Boot/Core/Inc;../../Drivers/STM32H7RSxx_HAL_Driver/Inc;../../Drivers/STM32H7RSxx_HAL_Driver/Inc/Legacy;../../Drivers/CMSIS/Device/ST/STM32H7RSxx/Include;../../Drivers/CMSIS/Include;../../../../CherryUSB/common;../../../../CherryUSB/core;../../../../CherryUSB/class/cdc;../../../../CherryUSB/class/hid;../../../../CherryUSB/class/msc;../../../../CherryUSB/class/audio;../../../../CherryUSB/class/video;../../../../CherryUSB/class/hub;..\..\..\..\CherryUSB\third_party\FreeRTOS-10.4\include;..\..\..\..\CherryUSB\third_party\FreeRTOS-10.4\portable\GCC\ARM_CM7\r0p1</IncludePath>
+              <IncludePath>../../Boot/Core/Inc;../../Drivers/STM32H7RSxx_HAL_Driver/Inc;../../Drivers/STM32H7RSxx_HAL_Driver/Inc/Legacy;../../Drivers/CMSIS/Device/ST/STM32H7RSxx/Include;../../Drivers/CMSIS/Include;../../../../CherryUSB/common;../../../../CherryUSB/core;../../../../CherryUSB/class/cdc;../../../../CherryUSB/class/hid;../../../../CherryUSB/class/msc;../../../../CherryUSB/class/audio;../../../../CherryUSB/class/video;../../../../CherryUSB/class/hub;..\..\..\..\CherryUSB\third_party\FreeRTOS-10.4\include;..\..\..\..\CherryUSB\third_party\FreeRTOS-10.4\portable\GCC\ARM_CM7\r0p1;..\..\..\..\CherryUSB\third_party\fatfs-0.14\source</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -409,6 +409,11 @@
               <FileType>1</FileType>
               <FilePath>../../Boot/Core/Src/stm32h7rsxx_hal_msp.c</FilePath>
             </File>
+            <File>
+              <FileName>usb_host.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\CherryUSB\demo\usb_host.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -418,51 +423,6 @@
               <FileName>system_stm32h7rsxx.c</FileName>
               <FileType>1</FileType>
               <FilePath>../../Boot/Core/Src/system_stm32h7rsxx.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>CherryUSB</GroupName>
-          <Files>
-            <File>
-              <FileName>usb_glue_st.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\CherryUSB\port\dwc2\usb_glue_st.c</FilePath>
-            </File>
-            <File>
-              <FileName>usb_osal_freertos.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\CherryUSB\osal\usb_osal_freertos.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbh_core.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\CherryUSB\core\usbh_core.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbh_cdc_acm.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\CherryUSB\class\cdc\usbh_cdc_acm.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbh_hid.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\CherryUSB\class\hid\usbh_hid.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbh_msc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\CherryUSB\class\msc\usbh_msc.c</FilePath>
-            </File>
-            <File>
-              <FileName>usb_hc_dwc2.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\CherryUSB\port\dwc2\usb_hc_dwc2.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbh_hub.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\CherryUSB\class\hub\usbh_hub.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1493,6 +1453,51 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>CherryUSB</GroupName>
+          <Files>
+            <File>
+              <FileName>usb_glue_st.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\CherryUSB\port\dwc2\usb_glue_st.c</FilePath>
+            </File>
+            <File>
+              <FileName>usb_osal_freertos.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\CherryUSB\osal\usb_osal_freertos.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_core.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\CherryUSB\core\usbh_core.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_cdc_acm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\CherryUSB\class\cdc\usbh_cdc_acm.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_hid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\CherryUSB\class\hid\usbh_hid.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_msc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\CherryUSB\class\msc\usbh_msc.c</FilePath>
+            </File>
+            <File>
+              <FileName>usb_hc_dwc2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\CherryUSB\port\dwc2\usb_hc_dwc2.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_hub.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\CherryUSB\class\hub\usbh_hub.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>FreeRTOS</GroupName>
           <Files>
             <File>
@@ -1543,6 +1548,36 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>FATFS</GroupName>
+          <Files>
+            <File>
+              <FileName>diskio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\CherryUSB\third_party\fatfs-0.14\source\diskio.c</FilePath>
+            </File>
+            <File>
+              <FileName>ff.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\CherryUSB\third_party\fatfs-0.14\source\ff.c</FilePath>
+            </File>
+            <File>
+              <FileName>ffsystem.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\CherryUSB\third_party\fatfs-0.14\source\ffsystem.c</FilePath>
+            </File>
+            <File>
+              <FileName>ffunicode.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\CherryUSB\third_party\fatfs-0.14\source\ffunicode.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_fatfs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\CherryUSB\platform\none\usbh_fatfs.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>
@@ -1561,5 +1596,14 @@
     </components>
     <files/>
   </RTE>
+
+  <LayerInfo>
+    <Layers>
+      <Layer>
+        <LayName>stm32h7r7_Boot</LayName>
+        <LayPrjMark>1</LayPrjMark>
+      </Layer>
+    </Layers>
+  </LayerInfo>
 
 </Project>
