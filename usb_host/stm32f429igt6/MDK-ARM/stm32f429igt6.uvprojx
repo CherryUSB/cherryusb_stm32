@@ -947,7 +947,7 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>chry</GroupName>
+          <GroupName>cherrymp</GroupName>
           <Files>
             <File>
               <FileName>chry_mempool.c</FileName>
@@ -958,6 +958,11 @@
               <FileName>chry_ringbuffer.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\CherryUSB\third_party\cherryrb\chry_ringbuffer.c</FilePath>
+            </File>
+            <File>
+              <FileName>chry_mempool_osal_freertos.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\third_party\cherrymp\chry_mempool_osal_freertos.c</FilePath>
             </File>
           </Files>
         </Group>
