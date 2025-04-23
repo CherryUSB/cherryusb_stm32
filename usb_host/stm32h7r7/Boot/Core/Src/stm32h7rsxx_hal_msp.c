@@ -165,7 +165,7 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
 * @param hpcd: PCD handle pointer
 * @retval None
 */
-void HAL_PCD_MspInit(PCD_HandleTypeDef* hpcd)
+void HAL_HCD_MspInit(HCD_HandleTypeDef* hpcd)
 {
   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
   if(hpcd->Instance==USB_OTG_HS)
@@ -207,7 +207,7 @@ void HAL_PCD_MspInit(PCD_HandleTypeDef* hpcd)
 * @param hpcd: PCD handle pointer
 * @retval None
 */
-void HAL_PCD_MspDeInit(PCD_HandleTypeDef* hpcd)
+void HAL_HCD_MspDeInit(HCD_HandleTypeDef* hpcd)
 {
   if(hpcd->Instance==USB_OTG_HS)
   {

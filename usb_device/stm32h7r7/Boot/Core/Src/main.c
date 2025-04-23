@@ -65,55 +65,6 @@ static void MX_USB_OTG_HS_PCD_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void usb_dc_low_level_init(uint8_t busid)
-{
-   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
-  /* USER CODE BEGIN USB_OTG_HS_MspInit 0 */
-
-  /* USER CODE END USB_OTG_HS_MspInit 0 */
-
-  /** Initializes the peripherals clock
-  */
-    PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USBPHYC;
-    PeriphClkInit.UsbPhycClockSelection = RCC_USBPHYCCLKSOURCE_HSE;
-    if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
-    {
-      Error_Handler();
-    }
-
-  /** Enable USB Voltage detector
-  */
-    HAL_PWREx_EnableUSBVoltageDetector();
-    /* Enable the USB HS regulator. */
-    HAL_PWREx_EnableUSBHSregulator();
-    
-    /* Peripheral clock enable */
-    __HAL_RCC_USB_OTG_HS_CLK_ENABLE();
-    __HAL_RCC_USBPHYC_CLK_ENABLE();
-    /* USB_OTG_HS interrupt Init */
-    HAL_NVIC_SetPriority(OTG_HS_IRQn, 0, 0);
-    HAL_NVIC_EnableIRQ(OTG_HS_IRQn);
-  /* USER CODE BEGIN USB_OTG_HS_MspInit 1 */
-
-  /* USER CODE END USB_OTG_HS_MspInit 1 */
-}
-
-void usb_dc_low_level_deinit(uint8_t busid)
-{
-  /* USER CODE BEGIN USB_OTG_HS_MspDeInit 0 */
-
-  /* USER CODE END USB_OTG_HS_MspDeInit 0 */
-    /* Peripheral clock disable */
-    __HAL_RCC_USB_OTG_HS_CLK_DISABLE();
-    __HAL_RCC_USBPHYC_CLK_DISABLE();
-
-    /* USB_OTG_HS interrupt DeInit */
-    HAL_NVIC_DisableIRQ(OTG_HS_IRQn);
-  /* USER CODE BEGIN USB_OTG_HS_MspDeInit 1 */
-
-  /* USER CODE END USB_OTG_HS_MspDeInit 1 */
-}
-
 /*属性为Normal，cache的属性为 write-back，即仅更新cache，
  *在合适的时候(由cache策略决定或者软件强制更新)将数据更新到相应的SRAM空间
  *特别注意：如果要数据立即更新，写之后要SCB_CleanDCache，读数据时要SCB_InvalidateDCache
@@ -261,6 +212,9 @@ int main(void)
   MX_UART4_Init();
   //MX_USB_OTG_HS_PCD_Init();
   /* USER CODE BEGIN 2 */
+  /* Enable the USB HS regulator. */
+  HAL_PWREx_EnableUSBHSregulator();
+    
   extern void cdc_acm_msc_init(uint8_t busid, uintptr_t reg_base);
   cdc_acm_msc_init(0, USB_OTG_HS_PERIPH_BASE);
   /* USER CODE END 2 */

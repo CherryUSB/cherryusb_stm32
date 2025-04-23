@@ -50,7 +50,7 @@
 /* #define HAL_GFXTIM_MODULE_ENABLED   */
 /* #define HAL_GPU2D_MODULE_ENABLED   */
 /* #define HAL_HASH_MODULE_ENABLED   */
-/* #define HAL_HCD_MODULE_ENABLED   */
+#define HAL_HCD_MODULE_ENABLED
 /* #define HAL_I2C_MODULE_ENABLED   */
 /* #define HAL_I2S_MODULE_ENABLED   */
 /* #define HAL_I3C_MODULE_ENABLED   */
@@ -65,7 +65,7 @@
 /* #define HAL_MMC_MODULE_ENABLED   */
 /* #define HAL_NAND_MODULE_ENABLED   */
 /* #define HAL_NOR_MODULE_ENABLED   */
-#define HAL_PCD_MODULE_ENABLED
+/* #define HAL_PCD_MODULE_ENABLED   */
 /* #define HAL_PKA_MODULE_ENABLED   */
 /* #define HAL_PSSI_MODULE_ENABLED   */
 /* #define HAL_RAMECC_MODULE_ENABLED   */

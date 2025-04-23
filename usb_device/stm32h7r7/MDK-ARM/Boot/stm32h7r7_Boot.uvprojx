@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32H7R7xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../../Boot/Core/Inc;../../Drivers/STM32H7RSxx_HAL_Driver/Inc;../../Drivers/STM32H7RSxx_HAL_Driver/Inc/Legacy;../../Drivers/CMSIS/Device/ST/STM32H7RSxx/Include;../../Drivers/CMSIS/Include;../../../../CherryUSB/common;../../../../CherryUSB/core;../../../../CherryUSB/class/cdc;../../../../CherryUSB/class/hid;../../../../CherryUSB/class/msc;../../../../CherryUSB/class/audio;../../../../CherryUSB/class/video</IncludePath>
+              <IncludePath>../../Boot/Core/Inc;../../Drivers/STM32H7RSxx_HAL_Driver/Inc;../../Drivers/STM32H7RSxx_HAL_Driver/Inc/Legacy;../../Drivers/CMSIS/Device/ST/STM32H7RSxx/Include;../../Drivers/CMSIS/Include;../../../../CherryUSB/common;../../../../CherryUSB/core;../../../../CherryUSB/class/cdc;../../../../CherryUSB/class/hid;../../../../CherryUSB/class/msc;../../../../CherryUSB/class/audio;../../../../CherryUSB/class/video;../../../../CherryUSB/class/hub</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

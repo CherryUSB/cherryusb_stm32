@@ -74,56 +74,6 @@ int fputc(int ch, FILE *f)
   return ch;
 }
 
-void usb_hc_low_level_init(struct usbh_bus *bus)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
-
-  /* USER CODE BEGIN USB_OTG_HS_MspInit 0 */
-
-  /* USER CODE END USB_OTG_HS_MspInit 0 */
-  /** Initializes the peripherals clock
-  */
-    PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_USB;
-    PeriphClkInitStruct.PLL3.PLL3M = 25;
-    PeriphClkInitStruct.PLL3.PLL3N = 240;
-    PeriphClkInitStruct.PLL3.PLL3P = 2;
-    PeriphClkInitStruct.PLL3.PLL3Q = 5;
-    PeriphClkInitStruct.PLL3.PLL3R = 2;
-    PeriphClkInitStruct.PLL3.PLL3RGE = RCC_PLL3VCIRANGE_0;
-    PeriphClkInitStruct.PLL3.PLL3VCOSEL = RCC_PLL3VCOWIDE;
-    PeriphClkInitStruct.PLL3.PLL3FRACN = 0;
-    PeriphClkInitStruct.UsbClockSelection = RCC_USBCLKSOURCE_PLL3;
-    if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
-    {
-      Error_Handler();
-    }
-  /** Enable USB Voltage detector
-  */
-    HAL_PWREx_EnableUSBVoltageDetector();
-
-    __HAL_RCC_GPIOB_CLK_ENABLE();
-    /**USB_OTG_HS GPIO Configuration
-    PB15     ------> USB_OTG_HS_DP
-    PB14     ------> USB_OTG_HS_DM
-    */
-    GPIO_InitStruct.Pin = GPIO_PIN_15|GPIO_PIN_14;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-    GPIO_InitStruct.Alternate = GPIO_AF12_OTG2_FS;
-    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-    /* Peripheral clock enable */
-    __HAL_RCC_USB_OTG_HS_CLK_ENABLE();
-    /* USB_OTG_HS interrupt Init */
-    HAL_NVIC_SetPriority(OTG_HS_IRQn, 0, 0);
-    HAL_NVIC_EnableIRQ(OTG_HS_IRQn);
-  /* USER CODE BEGIN USB_OTG_HS_MspInit 1 */
-
-  /* USER CODE END USB_OTG_HS_MspInit 1 */
-}
-
 /*属性为Normal，cache的属性为 write-back，即仅更新cache，
  *在合适的时候(由cache策略决定或者软件强制更新)将数据更新到相应的SRAM空间
  *特别注意：如果要数据立即更新，写之后要SCB_CleanDCache，读数据时要SCB_InvalidateDCache
