@@ -68,7 +68,7 @@ static void MX_USB_OTG_HS_PCD_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void usb_hc_low_level_init(uint8_t busid)
+void usb_hc_low_level_init(struct usbh_bus *bus)
 {
    RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
   /* USER CODE BEGIN USB_OTG_HS_MspInit 0 */
@@ -101,7 +101,7 @@ void usb_hc_low_level_init(uint8_t busid)
   /* USER CODE END USB_OTG_HS_MspInit 1 */
 }
 
-void usb_hc_low_level_deinit(uint8_t busid)
+void usb_hc_low_level_deinit(struct usbh_bus *bus)
 {
   /* USER CODE BEGIN USB_OTG_HS_MspDeInit 0 */
 
