@@ -305,7 +305,7 @@
       <GroupNumber>2</GroupNumber>
       <FileNumber>5</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\CherryUSB\demo\cdc_acm_msc_template.c</PathWithFileName>
@@ -317,7 +317,7 @@
 
   <Group>
     <GroupName>Drivers/STM32F1xx_HAL_Driver</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -569,7 +569,7 @@
       <GroupNumber>5</GroupNumber>
       <FileNumber>25</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\CherryUSB\class\hid\usbd_hid.c</PathWithFileName>
@@ -610,6 +610,18 @@
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\CherryUSB\class\cdc\usbd_cdc_acm.c</PathWithFileName>
       <FilenameWithoutPath>usbd_cdc_acm.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>5</GroupNumber>
+      <FileNumber>29</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\..\CherryUSB\port\fsdev\usb_glue_st.c</PathWithFileName>
+      <FilenameWithoutPath>usb_glue_st.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
