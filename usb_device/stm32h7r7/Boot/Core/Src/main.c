@@ -180,7 +180,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-  cpu_mpu_config(0, MPU_Normal_NonCache, 0x24050000-0x4000, MPU_REGION_SIZE_64KB);
+  cpu_mpu_config(0, MPU_Normal_NonCache, 0x24050000-0x10000, MPU_REGION_SIZE_64KB);
   /* USER CODE END 1 */
 
   /* Enable the CPU Cache */
@@ -214,7 +214,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   /* Enable the USB HS regulator. */
   HAL_PWREx_EnableUSBHSregulator();
-    
+
   extern void cdc_acm_msc_init(uint8_t busid, uintptr_t reg_base);
   cdc_acm_msc_init(0, USB_OTG_HS_PERIPH_BASE);
   /* USER CODE END 2 */
