@@ -635,16 +635,6 @@
               <FilePath>..\..\..\CherryUSB\port\dwc2\usb_glue_st.c</FilePath>
             </File>
             <File>
-              <FileName>usbh_fatfs.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\CherryUSB\platform\none\usbh_fatfs.c</FilePath>
-            </File>
-            <File>
-              <FileName>usbh_lwip.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\CherryUSB\platform\none\usbh_lwip.c</FilePath>
-            </File>
-            <File>
               <FileName>usbh_asix.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\CherryUSB\class\vendor\net\usbh_asix.c</FilePath>
@@ -658,6 +648,16 @@
               <FileName>usbh_cdc_ncm.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\CherryUSB\class\cdc\usbh_cdc_ncm.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_fatfs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\platform\fatfs\usbh_fatfs.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_lwip.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\CherryUSB\platform\lwip\usbh_lwip.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -1573,7 +1573,7 @@
             <File>
               <FileName>usbh_fatfs.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\CherryUSB\platform\none\usbh_fatfs.c</FilePath>
+              <FilePath>..\..\..\..\CherryUSB\platform\fatfs\usbh_fatfs.c</FilePath>
             </File>
           </Files>
         </Group>
