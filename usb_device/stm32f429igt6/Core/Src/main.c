@@ -57,8 +57,6 @@ static void MX_GPIO_Init(void);
 static void MX_USB_OTG_HS_PCD_Init(void);
 static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
-#define FS_PORT 0
-#define HS_PORT 1
 
 /* USER CODE END PFP */
 

@@ -95,7 +95,7 @@
 #define CONFIG_USBHOST_MAX_EXTHUBS          1
 #define CONFIG_USBHOST_MAX_EHPORTS          4
 #define CONFIG_USBHOST_MAX_INTERFACES       8
-#define CONFIG_USBHOST_MAX_INTF_ALTSETTINGS 8
+#define CONFIG_USBHOST_MAX_INTF_ALTSETTINGS 2
 #define CONFIG_USBHOST_MAX_ENDPOINTS        4
 
 #define CONFIG_USBHOST_MAX_CDC_ACM_CLASS 4
@@ -198,18 +198,6 @@
 /* ---------------- FSDEV Configuration ---------------- */
 //#define CONFIG_USBDEV_FSDEV_PMA_ACCESS 2 // maybe 1 or 2, many chips may have a difference
 
-/* ---------------- DWC2 Configuration ---------------- */
-// #define CONFIG_USB_DWC2_RXALL_FIFO_SIZE (320)
-// #define CONFIG_USB_DWC2_TX0_FIFO_SIZE (64 / 4)
-// #define CONFIG_USB_DWC2_TX1_FIFO_SIZE (512 / 4)
-// #define CONFIG_USB_DWC2_TX2_FIFO_SIZE (64 / 4)
-// #define CONFIG_USB_DWC2_TX3_FIFO_SIZE (64 / 4)
-// #define CONFIG_USB_DWC2_TX4_FIFO_SIZE (0 / 4)
-// #define CONFIG_USB_DWC2_TX5_FIFO_SIZE (0 / 4)
-// #define CONFIG_USB_DWC2_TX6_FIFO_SIZE (0 / 4)
-// #define CONFIG_USB_DWC2_TX7_FIFO_SIZE (0 / 4)
-// #define CONFIG_USB_DWC2_TX8_FIFO_SIZE (0 / 4)
-
 /* ---------------- MUSB Configuration ---------------- */
 // #define CONFIG_USB_MUSB_SUNXI
 
@@ -239,17 +227,6 @@
 
 /* ---------------- XHCI Configuration ---------------- */
 #define CONFIG_USB_XHCI_HCCR_OFFSET (0x0)
-
-/* ---------------- DWC2 Configuration ---------------- */
-/* largest non-periodic USB packet used / 4 */
-// #define CONFIG_USB_DWC2_NPTX_FIFO_SIZE (512 / 4)
-/* largest periodic USB packet used / 4 */
-// #define CONFIG_USB_DWC2_PTX_FIFO_SIZE (1024 / 4)
-/*
- * (largest USB packet used / 4) + 1 for status information + 1 transfer complete +
- * 1 location each for Bulk/Control endpoint for handling NAK/NYET scenario
- */
-#define CONFIG_USB_DWC2_RX_FIFO_SIZE ((1006 - CONFIG_USB_DWC2_NPTX_FIFO_SIZE - CONFIG_USB_DWC2_PTX_FIFO_SIZE))
 
 /* ---------------- MUSB Configuration ---------------- */
 // #define CONFIG_USB_MUSB_SUNXI
