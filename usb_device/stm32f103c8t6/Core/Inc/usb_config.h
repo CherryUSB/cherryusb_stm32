@@ -256,7 +256,7 @@
 // #define CONFIG_USBDEV_SOF_ENABLE
 
 /* ---------------- FSDEV Configuration ---------------- */
-//#define CONFIG_USBDEV_FSDEV_PMA_ACCESS 2 // maybe 1 or 2, many chips may have a difference
+#define CONFIG_USBDEV_FSDEV_PMA_ACCESS 2 // maybe 1 or 2, many chips may have a difference
 
 /* ---------------- DWC2 Configuration ---------------- */
 /* enable dwc2 buffer dma mode for device
