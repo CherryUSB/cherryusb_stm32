@@ -24,3 +24,21 @@
 *.usb.tmp
 **/DebugConfig/**
 *.uvmpw.uvgui.*
+
+# IAR EWARM
+**/EWARM/**/settings/
+**/EWARM/**/BrowseInfo/
+**/EWARM/**/Exe/
+**/EWARM/**/List/
+**/EWARM/**/Obj/
+**/EWARM/**/Backup*/
+**/EWARM/**/.ninja_deps
+**/EWARM/**/.ninja_log
+**/EWARM/**/*_build_cache
+*.pbi
+*.pbd
+*.pbw
+*.browse
+*.dnx
+*.wsdt
+Backup\ of *
